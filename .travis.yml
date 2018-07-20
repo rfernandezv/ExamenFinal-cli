@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+- '8'
+branches:
+  only:
+  - master
+before_script:
+- npm install -g --silent @angular/cli
+script: 
+- ng build --prod
+deploy:
+  provider: cloudfoundry
+  skip_cleanup: true
+  username: richar.fernandezv@gmail.com
+  password: ric.fevil.Pivotal.123
+  api: https://api.run.pivotal.io
+  organization: rfernandezv
+    
+  space: development
+notifications:
+  email:
+    on_failure: change
+    on_success: change
