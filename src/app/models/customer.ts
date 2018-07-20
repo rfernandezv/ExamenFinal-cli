@@ -11,8 +11,7 @@ export class Customer {
     email : string;
     user : string;
     password : string;
-    id_rol : number;
-    bankAccounts : BankAccount[];
+    id_rol : number;    
 
     constructor() {}
 
