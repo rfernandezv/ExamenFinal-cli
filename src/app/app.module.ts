@@ -18,7 +18,7 @@ import { HomeComponent } from './shared/components/home/home.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { LoginComponent } from './login/login.component';
 import { CurrentOptionComponent } from './current-option/current-option.component';
-import { CustomerService} from './services/student.service';
+import { StudentService} from './services/student.service';
 import { Globals} from './shared/models/globals';
 import { MessageAlertHandleService} from './services/message-alert.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -68,7 +68,7 @@ import { AuthService } from './services/auth/auth.service';
     MatDatepickerModule
   ],
   providers: [
-    AuthService, AuthGuard, CustomerService, MessageAlertHandleService, Globals,
+    AuthService, AuthGuard, StudentService, MessageAlertHandleService, Globals,
      { 
       provide: HTTP_INTERCEPTORS, 
       useClass: AuthInterceptor, 

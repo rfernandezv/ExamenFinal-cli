@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {CustomerService} from '../../services/student.service';
+import {StudentService} from '../../services/student.service';
 import {HttpClient} from '@angular/common/http';
 import {MatDialog, MatPaginator, MatSort, PageEvent} from '@angular/material';
 import {Customer} from '../.././models/customer';
@@ -24,7 +24,7 @@ import { MessageAlertHandleService } from '../../services/message-alert.service'
 export class ListComponent implements OnInit {
   @BlockUI() blockUI: NgBlockUI;
   displayedColumns = ['id', 'firstName', 'lastName', 'documentNumber', 'cellphone', 'email', 'isActive', 'actions'];
-  customerDataBase: CustomerService | null;
+  customerDataBase: StudentService | null;
   customerDataSource: CustomerDataSource | null;
   index: number;
   id: number;
@@ -34,7 +34,7 @@ export class ListComponent implements OnInit {
   constructor(public httpClient: HttpClient,
               public dialog: MatDialog,
               public _messageAlertHandleService: MessageAlertHandleService,
-              public _CustomerService: CustomerService) {
+              public _studentService: StudentService) {
               }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -82,7 +82,7 @@ export class ListComponent implements OnInit {
 
   public loadData() {
     this.blockUI.start();
-    this.customerDataBase = new CustomerService(this.httpClient, this._messageAlertHandleService);
+    this.customerDataBase = new StudentService(this.httpClient, this._messageAlertHandleService);
     this.customerDataSource = new CustomerDataSource(this.customerDataBase, this.paginator, this.sort);
     
     Observable.fromEvent(this.filter.nativeElement, 'keyup')
@@ -128,7 +128,7 @@ export class CustomerDataSource extends DataSource<Customer> {
   filteredData: Customer[] = [];
   renderedData: Customer[] = [];
 
-  constructor(public _customerDatabase: CustomerService,
+  constructor(public _customerDatabase: StudentService,
               public _paginator: MatPaginator,
               public _sort: MatSort
             ) {

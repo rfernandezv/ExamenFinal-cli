@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ListComponent } from './student/list/list.component';
-import { CustomerModule } from './student/student.module';
+import { StudentModule } from './student/student.module';
 import { CurrentOptionComponent } from './current-option/current-option.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { HomeComponent } from './shared/components/home/home.component';
@@ -21,8 +21,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   exports: [
-    CustomerModule,
-    RouterModule, CustomerModule
+    StudentModule,
+    RouterModule, StudentModule
   ]
 })
 export class AppRoutingModule { }

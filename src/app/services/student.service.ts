@@ -16,7 +16,7 @@ import { MessageAlertHandleService } from './message-alert.service';
 
 
 @Injectable()
-export class CustomerService {
+export class StudentService {
   API_URL : string = environment.apiUrl + 'Customers';
 
   dataChange: BehaviorSubject<Customer[]> = new BehaviorSubject<Customer[]>([]);
